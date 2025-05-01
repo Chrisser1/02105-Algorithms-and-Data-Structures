@@ -22,6 +22,26 @@ class BinarySearchTree:
             return node
         self.root = _insert(self.root, key)
 
+    def delete(self, key):
+        def _delete(node, key):
+            if not node:
+                return node
+            if key < node.key:
+                node.left = _delete(node.left, key)
+            elif key > node.key:
+                node.right = _delete(node.right, key)
+            else:
+                if not node.left:
+                    return node.right
+                elif not node.right:
+                    return node.left
+                temp = self._min_value_node(node.right)
+                node.key = temp.key
+                node.right = _delete(node.right, temp.key)
+            return node
+
+        self.root = _delete(self.root, key)
+
     def search(self, key):
         def _search(node, key):
             if not node or node.key == key:
