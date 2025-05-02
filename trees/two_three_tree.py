@@ -343,5 +343,5 @@ if __name__ == "__main__":
     # for key in [5, 2, 6, 9, 4, 10, 1, 3, 7, 6, 11]:
     #     tree.insert(key)
     # tree.display()
-    # test_delete()
-    test_queries()
+    test_delete()
+    # test_queries()
